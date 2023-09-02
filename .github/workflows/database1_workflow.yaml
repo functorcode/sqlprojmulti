@@ -1,5 +1,9 @@
 name : database1_workflow
 on:
+  push:
+    paths:
+      - 'DatabaseProj1/**'
+
   workflow_dispatch:
 
 jobs:
