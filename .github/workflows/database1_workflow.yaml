@@ -1,0 +1,20 @@
+name : database1_workflow
+on:
+  dispatch_workflow:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name : Checkout
+        uses: actions/checkout@v3.5.3
+      - name: Setup .NET core
+        uses: actions/setup-dotnet@v3.2.0
+        with:
+          dotnet-version: '6.0.401'
+      - name: Setup sql project
+        run: |
+          dotnet new install Microsoft.Build.Sql.Templates
+      - name: Build project
+        run: |
+          dotnet build .\DatabaseProj1\DatabaseProj1.sqlproj
