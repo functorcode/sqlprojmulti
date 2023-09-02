@@ -17,4 +17,5 @@ jobs:
           dotnet new install Microsoft.Build.Sql.Templates
       - name: Build project
         run: |
-          dotnet build .\DatabaseProj1\DatabaseProj1.sqlproj
+          cd DatabaseProj1
+          dotnet build DatabaseProj1.sqlproj
